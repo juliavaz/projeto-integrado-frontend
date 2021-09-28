@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import About from './Paginas/About';
-import Home from './Paginas/Home';
-import NotFound from './Paginas/NotFound';
+import About from './pages/About';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 function Routing() {
 	return (
