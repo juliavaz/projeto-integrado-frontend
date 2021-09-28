@@ -11,6 +11,22 @@ Consumir a API [https://dadosabertos.camara.leg.br/] e elaborar um Front-end.
 <table>
     <tr>
         <td align="center">
+            <a href="https://github.com/angeladeoliveira">
+                <img src="https://avatars.githubusercontent.com/u/9681303?v=4" width="100px;" alt="" /><br />
+                <sub><b>Angela de Oliveira</b></sub>
+            </a><br />
+            <a href="https://github.com/angeladeoliveira" title="Code">💻</a>
+            <a href="#ideas" title="Ideas, Planning, & Feedback">🤔</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/carlosdnba">
+                <img src="https://avatars.githubusercontent.com/u/64426814?v=4" width="100px;" alt="" /><br />
+                <sub><b>Carlos Daniel</b></sub>
+            </a><br />
+            <a href="https://github.com/carlosdnba" title="Code">💻</a>
+            <a href="#ideas" title="Ideas, Planning, & Feedback">🤔</a>
+        </td>
+        <td align="center">
             <a href="https://github.com/juliavaz">
                 <img src="https://avatars.githubusercontent.com/u/50247060?v=4" width="100px;" alt="" /><br />
                 <sub><b>Júlia Vaz</b></sub>
@@ -24,22 +40,6 @@ Consumir a API [https://dadosabertos.camara.leg.br/] e elaborar um Front-end.
                 <sub><b>Leandro Faria</b></sub>
             </a><br />
             <a href="https://github.com/leandrofaria" title="Code">💻</a>
-            <a href="#ideas" title="Ideas, Planning, & Feedback">🤔</a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/carlosdnba">
-                <img src="https://avatars.githubusercontent.com/u/64426814?v=4" width="100px;" alt="" /><br />
-                <sub><b>Carlos Daniel</b></sub>
-            </a><br />
-            <a href="https://github.com/carlosdnba" title="Code">💻</a>
-            <a href="#ideas" title="Ideas, Planning, & Feedback">🤔</a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/angeladeoliveira">
-                <img src="https://avatars.githubusercontent.com/u/9681303?v=4" width="100px;" alt="" /><br />
-                <sub><b>Angela de Oliveira</b></sub>
-            </a><br />
-            <a href="https://github.com/angeladeoliveira" title="Code">💻</a>
             <a href="#ideas" title="Ideas, Planning, & Feedback">🤔</a>
         </td>
     </tr>
