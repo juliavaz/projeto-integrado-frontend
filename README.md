@@ -45,5 +45,18 @@ Consumir a API [https://dadosabertos.camara.leg.br/] e elaborar um Front-end.
     </tr>
 </table>
 
+## Professor Responsável e Avaliador
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/orionteles">
+                <img src="https://avatars.githubusercontent.com/u/217235?v=4" width="100px;" alt="" /><br />
+                <sub><b>Orion Teles</b></sub>
+            </a><br />
+            <a href="https://github.com/orionteles/" title="Teacher">👨🏻‍💻</a>
+        </td>
+    </tr>
+</table>
+
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
