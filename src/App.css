@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body,
+html {
+	margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#navBar {
+	height: 80px;
+	background-color: #4e97fd;
+	color: #ffffff;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	padding: 0 25px 0 25px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#mainContainer {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-content: center;
+	align-items: flex-start;
 }
-
-.App-link {
-  color: #61dafb;
+#sideMenu {
+	width: 250px;
+	height: calc(100vh - 80px);
+	background: rgb(148, 69, 255);
+	background: -moz-linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
+	background: -webkit-linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
+	background: linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9445ff",endColorstr="#4e97fd",GradientType=1);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#contentContainer {
+	flex-grow: 1;
 }

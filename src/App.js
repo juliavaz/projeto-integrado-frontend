@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import PrimeReact from 'primereact/api';
+import { BrowserRouter } from 'react-router-dom';
+import Routing from './Routing';
+import NavBar from './Componentes/NavBar';
+import SideMenu from './Componentes/SideMenu';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	PrimeReact.ripple = true;
+
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<NavBar />
+				<div id="mainContainer">
+					<SideMenu />
+					<div id="contentContainer">
+						<Routing />
+					</div>
+				</div>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
