@@ -22,10 +22,11 @@ html {
 	justify-content: center;
 	align-content: center;
 	align-items: flex-start;
+	height: calc(100vh - 80px);
 }
 #sideMenu {
 	width: 250px;
-	height: calc(100vh - 80px);
+	height: 100%;
 	background: rgb(148, 69, 255);
 	background: -moz-linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
 	background: -webkit-linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
@@ -33,5 +34,8 @@ html {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9445ff",endColorstr="#4e97fd",GradientType=1);
 }
 #contentContainer {
+	height: 100%;
 	flex-grow: 1;
+	overflow-y: scroll;
+	padding: 25px;
 }
