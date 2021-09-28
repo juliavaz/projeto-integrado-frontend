@@ -46,10 +46,6 @@ hr {
 	background: linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9445ff",endColorstr="#4e97fd",GradientType=1);
 }
-.sideMenu.closed {
-	width: 0;
-	visibility: hidden;
-}
 .sideMenu a {
 	display: block;
 	width: 100%;
@@ -93,5 +89,9 @@ hr {
 		position: absolute;
 		width: 100%;
 		height: 100%;
+	}
+	.sideMenu.closed {
+		width: 0;
+		visibility: hidden;
 	}
 }
