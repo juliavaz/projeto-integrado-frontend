@@ -24,12 +24,6 @@ function SideMenu(props) {
 					</Link>
 				</li>
 				<li>
-					<Link to="/notfound" onClick={props.closeMenus}>
-						<AiFillWarning />
-						Not Found
-					</Link>
-				</li>
-				<li>
 					<h1>deputados</h1>
 				</li>
 				<li>
