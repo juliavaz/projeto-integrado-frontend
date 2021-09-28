@@ -5,7 +5,9 @@ function NavBar() {
 		<>
 			<div id="navBar">
 				<div id="logo">Logo</div>
-				<div id="titulo">Projeto Integrado do Grupo Mais Top</div>
+				<div id="titulo">
+					<h1>Projeto Integrado do Grupo Mais Top</h1>
+				</div>
 				<div id="menuButton">Menu</div>
 			</div>
 		</>
