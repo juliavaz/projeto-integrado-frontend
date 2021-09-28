@@ -3,26 +3,28 @@ import { Link } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { AiFillWarning } from 'react-icons/ai';
 
-function SideMenu() {
+function SideMenu(props) {
+	let classes = props.showSideMenu === false ? 'sideMenu closed' : 'sideMenu';
 	return (
-		<div id="sideMenu">
+		<div className={classes}>
 			<ul>
 				<li>
-					<Link to="/">
+					<Link to="/" onClick={props.closeMenus}>
 						<FaHome />
 						Home
 					</Link>
 				</li>
 				<li>
-					<Link to="/about">
+					<Link to="/about" onClick={props.closeMenus}>
 						<FaInfoCircle />
 						Sobre
 					</Link>
 				</li>
 				<li>
-					<Link to="/notfound">
+					<Link to="/notfound" onClick={props.closeMenus}>
 						<AiFillWarning />
 						Not Found
 					</Link>
@@ -31,9 +33,15 @@ function SideMenu() {
 					<h1>deputados</h1>
 				</li>
 				<li>
-					<Link to="/deputados">
+					<Link to="/deputados" onClick={props.closeMenus}>
 						<FaUser />
 						Deputados
+					</Link>
+				</li>
+				<li>
+					<Link to="/partidos" onClick={props.closeMenus}>
+						<FaUsers />
+						Partidos
 					</Link>
 				</li>
 			</ul>

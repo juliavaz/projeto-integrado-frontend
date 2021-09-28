@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	transition: all 0.2s;
 }
 body,
 html {
@@ -22,6 +23,12 @@ hr {
 	align-content: center;
 	padding: 0 25px 0 25px;
 }
+#navBar #menuButton {
+	cursor: pointer;
+}
+#navBar #menuButton:hover {
+	color: #0000ff;
+}
 #mainContainer {
 	display: flex;
 	flex-flow: row nowrap;
@@ -30,7 +37,7 @@ hr {
 	align-items: flex-start;
 	height: calc(100vh - 80px);
 }
-#sideMenu {
+.sideMenu {
 	width: 250px;
 	height: 100%;
 	background: rgb(148, 69, 255);
@@ -39,7 +46,7 @@ hr {
 	background: linear-gradient(45deg, rgba(148, 69, 255, 1) 0%, rgba(78, 151, 253, 1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9445ff",endColorstr="#4e97fd",GradientType=1);
 }
-#sideMenu a {
+.sideMenu a {
 	display: block;
 	width: 100%;
 	text-decoration: none;
@@ -47,22 +54,22 @@ hr {
 	padding: 12px;
 	border-bottom: 1px solid rgba(0, 0, 100, 0.2);
 }
-#sideMenu a:hover {
+.sideMenu a:hover {
 	background-color: #000055;
 }
-#sideMenu svg {
+.sideMenu svg {
 	margin-right: 10px;
 }
-#sideMenu ul {
+.sideMenu ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
-#sideMenu ul li {
+.sideMenu ul li {
 	display: block;
 	font-weight: bold;
 }
-#sideMenu h1 {
+.sideMenu h1 {
 	font-family: monospace;
 	text-transform: uppercase;
 	font-size: 1rem;
@@ -75,4 +82,16 @@ hr {
 	flex-grow: 1;
 	overflow-y: scroll;
 	padding: 25px;
+}
+
+@media all and (max-width: 800px) {
+	.sideMenu {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.sideMenu.closed {
+		width: 0;
+		visibility: hidden;
+	}
 }
