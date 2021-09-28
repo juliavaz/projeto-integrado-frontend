@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { AiFillWarning } from 'react-icons/ai';
 
 function SideMenu() {
@@ -24,6 +25,15 @@ function SideMenu() {
 					<Link to="/notfound">
 						<AiFillWarning />
 						Not Found
+					</Link>
+				</li>
+				<li>
+					<h1>deputados</h1>
+				</li>
+				<li>
+					<Link to="/deputados">
+						<FaUser />
+						Deputados
 					</Link>
 				</li>
 			</ul>
