@@ -3,12 +3,14 @@ import { Switch, Route } from 'react-router';
 import About from './pages/About';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Deputados from './pages/deputies/Deputados';
 
 function Routing() {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/sobre" component={About} />
+			<Route exact path="/deputados" component={Deputados} />
 			<Route path="**" component={NotFound} />
 		</Switch>
 	);
