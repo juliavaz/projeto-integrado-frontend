@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import About from './pages/About';
-import Deputados from './pages/deputies/Deputados';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Deputados from './pages/deputies/Deputados';
 
 function Routing() {
 	return (
