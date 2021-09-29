@@ -18,15 +18,9 @@ function SideMenu(props) {
 					</Link>
 				</li>
 				<li>
-					<Link to="/about" onClick={props.closeMenus}>
+					<Link to="/sobre" onClick={props.closeMenus}>
 						<FaInfoCircle />
 						Sobre
-					</Link>
-				</li>
-				<li>
-					<Link to="/notfound" onClick={props.closeMenus}>
-						<AiFillWarning />
-						Not Found
 					</Link>
 				</li>
 				<li>
