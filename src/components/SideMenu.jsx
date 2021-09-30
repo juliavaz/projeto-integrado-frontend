@@ -4,7 +4,6 @@ import { FaHome } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
-import { AiFillWarning } from 'react-icons/ai';
 
 function SideMenu(props) {
 	let classes = props.showSideMenu === false ? 'sideMenu closed' : 'sideMenu';
