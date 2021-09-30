@@ -17,6 +17,8 @@ const Deputados = () => {
 	return (
 		<>
 			<h1>Deputados</h1>
+			<hr />
+			<br />
 			<div className="flexContainer">
 				{deputados.map((deputado) => (
 					<CardDeputados imgPath={deputado.urlFoto} nome={deputado.nome} partido={deputado.siglaPartido} />
