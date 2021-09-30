@@ -20,8 +20,13 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				{deputados.map((deputado) => (
-					<CardDeputados imgPath={deputado.urlFoto} nome={deputado.nome} partido={deputado.siglaPartido} />
+				{deputados.map((deputado, index) => (
+					<CardDeputados
+						imgPath={deputado.urlFoto}
+						nome={deputado.nome}
+						partido={deputado.siglaPartido}
+						key={index}
+					/>
 				))}
 			</div>
 		</>
