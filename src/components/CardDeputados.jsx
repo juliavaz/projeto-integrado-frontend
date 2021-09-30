@@ -1,14 +1,13 @@
 import React from 'react'
 
 
-const CardDeputados = () => {
-
+const CardDeputados = ({ imgPath, nome, partido }) => {
     return (
         <div className="cartaoDep">
-            <img src="https://www.camara.leg.br/internet/deputado/bandep/pagina_do_deputado/160511.jpg" />
+            <img src={imgPath} />
             <div className="cartaoContent">
-                <h3>Nome</h3>
-                <p>Partido</p>
+                <h3>{nome}</h3>
+                <p>{partido}</p>
             </div>
         </div>
     )
