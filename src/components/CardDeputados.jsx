@@ -1,16 +1,15 @@
-import React from 'react'
-
+import React from 'react';
 
 const CardDeputados = ({ imgPath, nome, partido }) => {
-    return (
-        <div className="cartaoDep">
-            <img src={imgPath} />
-            <div className="cartaoContent">
-                <h3>{nome}</h3>
-                <p>{partido}</p>
-            </div>
-        </div>
-    )
-}
+	return (
+		<div className="cartaoDep">
+			<img src={imgPath} alt={nome + ' - ' + partido} />
+			<div className="cartaoContent">
+				<h3>{nome}</h3>
+				<p>{partido}</p>
+			</div>
+		</div>
+	);
+};
 
-export default CardDeputados
+export default CardDeputados;
