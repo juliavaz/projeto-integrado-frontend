@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import CardDeputados from '../../components/CardDeputados'
-import { getDeputados } from '../../services/api'
+import React, { useState, useEffect } from 'react';
+import CardDeputados from '../../components/CardDeputados';
+import { getDeputados } from '../../services/api';
 
 const Deputados = () => {
-    const [deputados, setDeputados] = useState([])
+	const [deputados, setDeputados] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            const { data: { dados } } = await getDeputados()
-            setDeputados(dados)
-        })();
-    }, []);
+	useEffect(() => {
+		(async () => {
+			const {
+				data: { dados },
+			} = await getDeputados();
+			setDeputados(dados);
+		})();
+	}, []);
 
-    return (
-        <div>
-            <h1>Deputados</h1>
-            {deputados.map(deputado => <CardDeputados
-                imgPath={deputado.urlFoto}
-                nome={deputado.nome}
-                partido={deputado.siglaPartido}
-            />)}
-        </div>
-    )
-}
+	return (
+		<>
+			<h1>Deputados</h1>
+			<hr />
+			<br />
+			<div className="flexContainer">
+				{deputados.map((deputado) => (
+					<CardDeputados imgPath={deputado.urlFoto} nome={deputado.nome} partido={deputado.siglaPartido} />
+				))}
+			</div>
+		</>
+	);
+};
 
-export default Deputados
+export default Deputados;
