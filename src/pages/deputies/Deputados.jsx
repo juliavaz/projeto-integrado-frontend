@@ -22,6 +22,7 @@ const Deputados = () => {
 			<div className="flexContainer">
 				{deputados.map((deputado, index) => (
 					<CardDeputados
+						id={deputado.id}
 						imgPath={deputado.urlFoto}
 						nome={deputado.nome}
 						partido={deputado.siglaPartido}

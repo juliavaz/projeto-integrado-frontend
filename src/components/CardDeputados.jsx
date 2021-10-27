@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CardDeputados = ({ imgPath, nome, partido }) => {
+const CardDeputados = ({ id, imgPath, nome, partido }) => {
 	return (
-		<div className="cartaoDep">
+		<div id={id} className="cartaoDep">
 			<img src={imgPath} alt={nome + ' - ' + partido} />
 			<div className="cartaoContent">
 				<h3>{nome}</h3>

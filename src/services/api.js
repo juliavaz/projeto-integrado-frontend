@@ -9,3 +9,8 @@ export const getDeputados = async () => {
   return deputados;
 };
 
+export const getPartidos = async () => {
+  const partidos = await http.get('partidos');
+  return partidos;
+};
+
