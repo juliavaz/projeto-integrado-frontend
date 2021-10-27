@@ -33,7 +33,7 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText onChange={(e) => filtrar(e)} />
+				<InputText onChange={filtrar} />
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
