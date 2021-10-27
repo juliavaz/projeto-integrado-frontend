@@ -10,7 +10,11 @@ export const getDeputados = async () => {
 };
 
 export const getPartidos = async () => {
-  const partidos = await http.get('partidos');
+  const partidos = await http.get('partidos', {
+    params: {
+      itens: 50
+    }
+  });
   return partidos;
 };
 
