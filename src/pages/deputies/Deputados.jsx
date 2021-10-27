@@ -22,7 +22,7 @@ const Deputados = () => {
 		const filtrados = deputados.filter((deputado) => {
 			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
 				return deputado;
-			}
+			} else return null;
 		});
 		setDeputadosFiltrados(filtrados);
 	}
