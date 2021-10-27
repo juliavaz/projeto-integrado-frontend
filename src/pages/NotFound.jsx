@@ -1,7 +1,9 @@
 import React from 'react';
 
-function NotFound() {
-	return <div>Pagina nao encontrada</div>;
+const NotFound = () => {
+	return (
+		<div className='flexContainer notFound'></div>
+	)
 }
 
 export default NotFound;
