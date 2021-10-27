@@ -5,7 +5,7 @@ import { InputText } from 'primereact/inputtext';
 
 const Deputados = () => {
 	const [deputados, setDeputados] = useState([]);
-	const [filtro, setFilter] = useState('');
+	const [deputadosFiltrados, setDeputadosFiltrados] = useState([]);
 
 	useEffect(() => {
 		(async () => {
@@ -13,8 +13,19 @@ const Deputados = () => {
 				data: { dados },
 			} = await getDeputados();
 			setDeputados(dados);
+			setDeputadosFiltrados(dados);
 		})();
 	}, []);
+
+	function filtrar(e) {
+		const filtro = e.target.value;
+		const filtrados = deputados.filter((deputado) => {
+			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
+				return deputado;
+			}
+		});
+		setDeputadosFiltrados(filtrados);
+	}
 
 	return (
 		<>
@@ -22,10 +33,10 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText value={filtro} onChange={(e) => setFilter(e.target.value)} />
+				<InputText onChange={(e) => filtrar(e)} />
 			</div>
 			<div className="flexContainer">
-				{deputados.map((deputado, index) => (
+				{deputadosFiltrados.map((deputado, index) => (
 					<CardDeputados
 						id={deputado.id}
 						imgPath={deputado.urlFoto}
