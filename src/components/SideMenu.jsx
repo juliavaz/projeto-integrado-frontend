@@ -65,7 +65,7 @@ function SideMenu(props) {
 					</Link>
 				</li>
 				<li>
-					<Link to="/blocospartidarios" onClick={props.closeMenus}>
+					<Link to="/frentesparlamentares" onClick={props.closeMenus}>
 						<FaUserTie />
 						Frentes Parlamentares
 					</Link>
@@ -74,13 +74,13 @@ function SideMenu(props) {
 					<h1>Mais Informações</h1>
 				</li>
 				<li>
-					<Link to="/proposicoes" onClick={props.closeMenus}>
+					<Link to="/eventos" onClick={props.closeMenus}>
 						<FaCalendarAlt />
 						Eventos
 					</Link>
 				</li>
 				<li>
-					<Link to="/votacoes" onClick={props.closeMenus}>
+					<Link to="/orgaoslegislativos" onClick={props.closeMenus}>
 						<FaHotel />
 						Órgãos Legislativos
 					</Link>
