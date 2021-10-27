@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome } from 'react-icons/fa';
+import { FaCalendarAlt, FaCubes, FaFile, FaFileSignature, FaHome, FaHotel, FaUserTie, FaVoteYea } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
@@ -35,6 +35,54 @@ function SideMenu(props) {
 					<Link to="/partidos" onClick={props.closeMenus}>
 						<FaUsers />
 						Partidos
+					</Link>
+				</li>
+				<li>
+					<Link to="/blocospartidarios" onClick={props.closeMenus}>
+						<FaCubes />
+						Blocos Partidários
+					</Link>
+				</li>
+				<li>
+					<Link to="/legislaturas" onClick={props.closeMenus}>
+						<FaFileSignature />
+						Legislaturas
+					</Link>
+				</li>
+				<li>
+					<h1>Atividades Legislativas</h1>
+				</li>
+				<li>
+					<Link to="/proposicoes" onClick={props.closeMenus}>
+						<FaFile />
+						Proposições
+					</Link>
+				</li>
+				<li>
+					<Link to="/votacoes" onClick={props.closeMenus}>
+						<FaVoteYea />
+						Votações
+					</Link>
+				</li>
+				<li>
+					<Link to="/frentesparlamentares" onClick={props.closeMenus}>
+						<FaUserTie />
+						Frentes Parlamentares
+					</Link>
+				</li>
+				<li>
+					<h1>Mais Informações</h1>
+				</li>
+				<li>
+					<Link to="/eventos" onClick={props.closeMenus}>
+						<FaCalendarAlt />
+						Eventos
+					</Link>
+				</li>
+				<li>
+					<Link to="/orgaoslegislativos" onClick={props.closeMenus}>
+						<FaHotel />
+						Órgãos Legislativos
 					</Link>
 				</li>
 			</ul>
