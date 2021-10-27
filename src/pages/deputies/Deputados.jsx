@@ -4,6 +4,10 @@ import { getDeputados } from '../../services/api';
 
 const Deputados = () => {
 	const [deputados, setDeputados] = useState([]);
+<<<<<<< Updated upstream
+=======
+	const [deputadosFiltrados, setDeputadosFiltrados] = useState([]);
+>>>>>>> Stashed changes
 
 	useEffect(() => {
 		(async () => {
@@ -11,8 +15,19 @@ const Deputados = () => {
 				data: { dados },
 			} = await getDeputados();
 			setDeputados(dados);
+			setDeputadosFiltrados(dados);
 		})();
 	}, []);
+
+	function filtrar(e) {
+		const filtro = e.target.value;
+		const filtrados = deputados.filter((deputado) => {
+			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
+				return deputado;
+			}
+		});
+		setDeputadosFiltrados(filtrados);
+	}
 
 	return (
 		<>
@@ -20,7 +35,14 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
+<<<<<<< Updated upstream
 				{deputados.map((deputado, index) => (
+=======
+				<InputText onChange={(e) => filtrar(e)} />
+			</div>
+			<div className="flexContainer">
+				{deputadosFiltrados.map((deputado, index) => (
+>>>>>>> Stashed changes
 					<CardDeputados
 						imgPath={deputado.urlFoto}
 						nome={deputado.nome}
