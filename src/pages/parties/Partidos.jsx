@@ -3,7 +3,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { getPartidos } from '../../services/api';
 
-export default () => {
+const Partidos = () => {
 	const [partidos, setPartidos] = useState([]);
 
 	useEffect(() => {
@@ -28,3 +28,5 @@ export default () => {
 		</>
 	);
 };
+
+export default Partidos;
