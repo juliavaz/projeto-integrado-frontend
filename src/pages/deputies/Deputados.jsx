@@ -22,7 +22,7 @@ const Deputados = () => {
 		const filtrados = deputados.filter((deputado) => {
 			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
 				return deputado;
-			}
+			} else return null;
 		});
 		setDeputadosFiltrados(filtrados);
 	}
@@ -33,7 +33,7 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText onChange={(e) => filtrar(e)} />
+				<InputText onChange={filtrar} />
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
