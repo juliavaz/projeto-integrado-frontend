@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { http } from '../../services/api';
 import { Avatar } from 'primereact/avatar';
+import { Col, Row } from 'react-bootstrap';
 
 
 const DeputadosDetalhes = (props) => {
@@ -25,14 +26,20 @@ const DeputadosDetalhes = (props) => {
         <>
             {deputados.ultimoStatus &&
             <>
-                <Avatar image={deputados.ultimoStatus.urlFoto} size='xlarge' shape='circle'/>
-                <h2>{deputados.ultimoStatus.nomeEleitoral}</h2>
-                <h4>{deputados.nomeCivil}</h4>
-                <h4>{deputados.ultimoStatus.situacao}</h4>
-                <hr />
-                <p>Partido: {deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</p>
-                <p>Email: {deputados.ultimoStatus.email}</p>
-                <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
+                <Row>
+                    <Col>
+                        <Avatar image={deputados.ultimoStatus.urlFoto} size='xlarge' shape='circle'/>
+                    </Col>
+                    <Col>
+                        <h2>{deputados.ultimoStatus.nomeEleitoral}</h2>
+                        <h4>{deputados.nomeCivil}</h4>
+                        <h4>{deputados.ultimoStatus.situacao}</h4>
+                        <hr />
+                        <p>Partido: {deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</p>
+                        <p>Email: {deputados.ultimoStatus.email}</p>
+                        <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
+                    </Col>
+                </Row>
             </>
             }
             <hr />

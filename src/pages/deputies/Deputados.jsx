@@ -38,7 +38,7 @@ const Deputados = () => {
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
-					<Link to={`/deputados/${deputado.id}`}>
+					<Link to={`/deputados/${deputado.id}`} className="noUnderline">
 						<CardDeputados
 							id={deputado.id}
 							imgPath={deputado.urlFoto}
