@@ -46,7 +46,7 @@ const DeputadosDetalhes = (props) => {
 
                         <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
                             <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"114px"}}/>
-                            <Badge bg="secondary" style={{"font-size": "16px", "position":"relative", "left":"-114px", "top":"50px"}}>{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Badge>
+                            <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}>{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Badge>
                         </Col>
                         <Col md={1}><Divider layout="vertical" /></Col>
                         
