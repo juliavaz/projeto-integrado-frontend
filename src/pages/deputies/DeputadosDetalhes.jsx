@@ -62,7 +62,7 @@ const DeputadosDetalhes = (props) => {
                             <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
                             <br /><br />
                             <Button variant="dark"><MdOutlineAttachMoney /> {''}Despesas</Button> {" "}
-                            <Button variant="outline-secondary"><GiPublicSpeaker /> {' '}Discursos</Button>
+                            <Button variant="outline-secondary"><GiPublicSpeaker /> {' '}Proposições</Button>
                             
                             
                             
