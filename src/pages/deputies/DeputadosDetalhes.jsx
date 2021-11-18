@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { http } from '../../services/api';
-import { Avatar } from 'primereact/avatar';
-import { Col, Row } from 'react-bootstrap';
+import { Badge, Col, Container, Row, Button } from 'react-bootstrap';
+import { Divider } from 'primereact/divider';
+import {MdOutlineAttachMoney} from 'react-icons/md'
+import {GiPublicSpeaker} from 'react-icons/gi'
 
 
 const DeputadosDetalhes = (props) => {
@@ -21,51 +23,62 @@ const DeputadosDetalhes = (props) => {
     
     },[props])
 
+    function badgeColor(){
+        if (deputados.ultimoStatus.situacao === "Exercício" || deputados.ultimoStatus.situacao === "Suplência") {
+            return "success"
+        } else if(deputados.ultimoStatus.situacao === "Afastado" || deputados.ultimoStatus.situacao === "Licença" || deputados.ultimoStatus.situacao === "Suspenso"){
+            return "warning"
+        } else if (deputados.ultimoStatus.situacao === "Fim de Mandato" || deputados.ultimoStatus.situacao === "Vacância"){
+            return "danger"
+        } else {
+            return "secondary"
+        }
+        
+    }
+
 
     return (
         <>
+
+            
+
             {deputados.ultimoStatus &&
             <>
-                <Row>
-                    <Col>
-                        <Avatar image={deputados.ultimoStatus.urlFoto} size='xlarge' shape='circle'/>
-                    </Col>
-                    <Col>
-                        <h2>{deputados.ultimoStatus.nomeEleitoral}</h2>
-                        <h4>{deputados.nomeCivil}</h4>
-                        <h4>{deputados.ultimoStatus.situacao}</h4>
-                        <hr />
-                        <p>Partido: {deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</p>
-                        <p>Email: {deputados.ultimoStatus.email}</p>
-                        <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
-                    </Col>
-                </Row>
+                
+                <Container>
+                    <Row>
+
+                        <Col md={4}>
+                            <img src={deputados.ultimoStatus.urlFoto} width="100%" alt={deputados.ultimoStatus.nomeEleitoral}/>
+                            <Badge bg="secondary" style={{"font-size": "20px", "position":"relative", "top":"-100px"}}>{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Badge>
+                        </Col>
+                        <Col md={1}><Divider layout="vertical" /></Col>
+                        
+                        <Col md={7}>
+                            <br />
+                            <h2>
+                                {deputados.ultimoStatus.nomeEleitoral}{" "}
+                                <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}>{deputados.ultimoStatus.situacao}</Badge>
+                            </h2>
+                            <br />
+                            <p>Nome civil: {deputados.nomeCivil}</p>
+                            <p>Email: {deputados.ultimoStatus.email}</p>
+                            <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
+                            <br /><br />
+                            <Button variant="dark"><MdOutlineAttachMoney /> {''}Despesas</Button> {" "}
+                            <Button variant="outline-secondary"><GiPublicSpeaker /> {' '}Discursos</Button>
+                            
+                            
+                            
+                         </Col>
+                    </Row>
+                </Container>
+                
             </>
             }
-            <hr />
+
 
             {console.log(despesas)}
-
-            {
-                despesas.map((despesa,i) => {
-                    <>
-                        <p>{despesa.ano}</p>
-                        <p>{despesa.cnpjCpfFornecedor}</p>
-                        <p>{despesa.codDocumento}</p>
-                        <p>{despesa.codLote}</p>
-                        <p>{despesa.dataDocumento}</p>
-                        <p>{despesa.mes}</p>
-                        <p>{despesa.nomeFornecedor}</p>
-                        <p>{despesa.numDocumento}</p>
-                        <p>{despesa.tipoDespesa}</p>
-                        <p>{despesa.tipoDocumento}</p>
-                        <p>{despesa.urlDocumento}</p>
-                        <p>{despesa.valorDocumento}</p>
-                        <p>{despesa.valorGlosa}</p>
-                        <p>{despesa.valorLiquido}</p>
-                    </>
-                })
-            }
 
 
         </>
