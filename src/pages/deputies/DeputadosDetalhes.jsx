@@ -9,7 +9,6 @@ import {GiPublicSpeaker} from 'react-icons/gi'
 const DeputadosDetalhes = (props) => {
 
     const [deputados, setDeputados] = useState([]);
-    const [despesas, setDespesas] = useState([]);
     
     useEffect(() => {
         const id = props.match.params.id 
@@ -17,9 +16,6 @@ const DeputadosDetalhes = (props) => {
         http.get(`/deputados/${id}`).then( resultado => {
           setDeputados(resultado.data.dados)
         })
-        http.get(`/deputados/${id}/despesas`).then( resultado => {
-            setDespesas(resultado.data.dados)
-          })
     
     },[props])
 
@@ -76,9 +72,6 @@ const DeputadosDetalhes = (props) => {
                 
             </>
             }
-
-
-            {console.log(despesas)}
 
 
         </>
