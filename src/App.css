@@ -165,5 +165,13 @@ h6 {
 
 .noUnderline {
 	text-decoration: none;
+	color: inherit;
+
+}
+
+.noUnderline:hover {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.719)
+	
 }
 

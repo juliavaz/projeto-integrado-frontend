@@ -4,11 +4,13 @@ import { Badge, Col, Container, Row, Button } from 'react-bootstrap';
 import { Divider } from 'primereact/divider';
 import {MdOutlineAttachMoney} from 'react-icons/md'
 import {GiPublicSpeaker} from 'react-icons/gi'
+import { Link } from 'react-router-dom';
 
 
 const DeputadosDetalhes = (props) => {
 
     const [deputados, setDeputados] = useState([]);
+    const [partidos, setPartidos] = useState([]);
     
     useEffect(() => {
         const id = props.match.params.id 
@@ -16,6 +18,10 @@ const DeputadosDetalhes = (props) => {
         http.get(`/deputados/${id}`).then( resultado => {
           setDeputados(resultado.data.dados)
         })
+
+        http.get(`/partidos/`).then( resultado => {
+            setPartidos(resultado.data.dados)
+          })
     
     },[props])
 
@@ -29,15 +35,25 @@ const DeputadosDetalhes = (props) => {
         } else {
             return "secondary"
         }
-        
+    }
+
+    function getPartido(){
+        const siglaPart = deputados.ultimoStatus.siglaPartido
+        let partidoId
+
+        for (let i = 0; i < partidos.length; i++) {
+            if(partidos[i].sigla === siglaPart){
+                partidoId = partidos[i].id
+            }
+        }
+
+        return partidoId
+
     }
 
 
     return (
         <>
-
-            
-
             {deputados.ultimoStatus &&
             <>
                 
@@ -46,7 +62,7 @@ const DeputadosDetalhes = (props) => {
 
                         <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
                             <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"114px"}}/>
-                            <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}>{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Badge>
+                            <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge>
                         </Col>
                         <Col md={1}><Divider layout="vertical" /></Col>
                         
@@ -54,7 +70,7 @@ const DeputadosDetalhes = (props) => {
                             <br />
                             <h2>
                                 {deputados.ultimoStatus.nomeEleitoral}{" "}
-                                <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}>{deputados.ultimoStatus.situacao}</Badge>
+                               <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}> {deputados.ultimoStatus.situacao}</Badge>
                             </h2>
                             <br />
                             <p>Nome civil: {deputados.nomeCivil}</p>
