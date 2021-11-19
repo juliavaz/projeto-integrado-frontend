@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 const DeputadosDetalhes = (props) => {
 
     const [deputados, setDeputados] = useState([]);
-    const [partidos, setPartidos] = useState([]);
     
     useEffect(() => {
         const id = props.match.params.id 
@@ -18,10 +17,6 @@ const DeputadosDetalhes = (props) => {
         http.get(`/deputados/${id}`).then( resultado => {
           setDeputados(resultado.data.dados)
         })
-
-        http.get(`/partidos/`).then( resultado => {
-            setPartidos(resultado.data.dados)
-          })
     
     },[props])
 
@@ -38,18 +33,13 @@ const DeputadosDetalhes = (props) => {
     }
 
     function getPartido(){
-        const siglaPart = deputados.ultimoStatus.siglaPartido
-        let partidoId
-
-        for (let i = 0; i < partidos.length; i++) {
-            if(partidos[i].sigla === siglaPart){
-                partidoId = partidos[i].id
-            }
-        }
-
+        
+        const partidoURL = deputados.ultimoStatus.uriPartido
+        const partidoId = partidoURL.substring(51)
         return partidoId
 
     }
+
 
 
     return (
