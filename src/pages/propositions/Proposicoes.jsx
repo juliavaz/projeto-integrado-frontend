@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { Container, ListGroup, Table } from 'react-bootstrap';
+import { Container, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getProposicoes } from '../../services/api';
 import {AiOutlineInfoCircle} from 'react-icons/ai'
