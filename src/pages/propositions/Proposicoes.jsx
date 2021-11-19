@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react'
-import { Table } from 'react-bootstrap';
+import { Container, ListGroup, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getProposicoes } from '../../services/api';
-import {BiMessageAltDetail} from 'react-icons/bi'
+import {AiOutlineInfoCircle} from 'react-icons/ai'
 
 const Proposicoes = () => {
     const [proposicoes, setProposicoes] = useState([]);
@@ -22,31 +22,21 @@ const Proposicoes = () => {
 			<hr />
 			<br />
 
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>Tipo</th>
-                    <th>Número</th>
-                    <th>Ano</th>
-                    <th>Ementa</th>
-                    <th>Detalhes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { proposicoes.map(proposicao => (    
-                    <tr>
-                    <td>{proposicao.id}</td>
-                    <td>{proposicao.siglaTipo}</td>
-                    <td>{proposicao.numero}</td>
-                    <td>{proposicao.ano}</td>
-                    <td>{proposicao.ementa}</td>
-                    <td><Link to={`/proposicoes/${proposicao.id}`} className="noUnderline"> <BiMessageAltDetail /></Link></td>
-                    </tr>
-                    ))
-                    }
-                </tbody>
-            </Table>
+            <Container>
+            <ListGroup >
+                { proposicoes.map(proposicao => (
+                    <ListGroup.Item
+                    as="li"
+                    className="d-flex justify-content-between align-items-start"
+                    >
+                        <div className="ms-2 me-auto">
+                        <div className="fw-bold">{proposicao.siglaTipo} {proposicao.numero}/{proposicao.ano} <Link to={`/proposicoes/${proposicao.id}`} className="noUnderline"> <AiOutlineInfoCircle /></Link></div>
+                        {proposicao.ementa}
+                        </div>
+                    </ListGroup.Item>
+                ))}
+            </ListGroup>
+            </Container>
         </>
     )
 }
