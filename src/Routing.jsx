@@ -7,6 +7,7 @@ import Deputados from './pages/deputies/Deputados';
 import Partidos from './pages/parties/Partidos';
 import DeputadosDetalhes from './pages/deputies/DeputadosDetalhes';
 import PartidosDetalhes from './pages/parties/PartidosDetalhes';
+import Proposicoes from './pages/propositions/Proposicoes';
 
 function Routing() {
 	return (
@@ -17,6 +18,7 @@ function Routing() {
 			<Route exact path="/deputados/:id" component={DeputadosDetalhes} />
 			<Route exact path="/partidos" component={Partidos} />
 			<Route exact path="/partidos/:id" component={PartidosDetalhes} />
+			<Route exact path="/proposicoes/" component={Proposicoes} />
 			<Route path="**" component={NotFound} />
 		</Switch>
 	);
