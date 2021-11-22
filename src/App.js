@@ -7,7 +7,7 @@ import PrimeReact from 'primereact/api';
 import { BrowserRouter } from 'react-router-dom';
 import Routing from './Routing';
 import NavBar from './components/NavBar';
-import SideMenu from './components/SideMenu';
+import SideMenu from './components/SideMenu2';
 
 function App() {
 	PrimeReact.ripple = true;
@@ -25,7 +25,6 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<NavBar toggleSideMenu={toggleSideMenu} />
 				<div id="mainContainer">
 					<SideMenu showSideMenu={showSideMenu} closeMenus={closeMenus} />
 					<div id="contentContainer">

@@ -8,12 +8,14 @@ import Partidos from './pages/parties/Partidos';
 import DeputadosDetalhes from './pages/deputies/DeputadosDetalhes';
 import PartidosDetalhes from './pages/parties/PartidosDetalhes';
 import Proposicoes from './pages/propositions/Proposicoes';
+import Favorites from './pages/Favorites';
 
 function Routing() {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/sobre" component={About} />
+			<Route exact path="/favoritos" component={Favorites} />
 			<Route exact path="/deputados" component={Deputados} />
 			<Route exact path="/deputados/:id" component={DeputadosDetalhes} />
 			<Route exact path="/partidos" component={Partidos} />
