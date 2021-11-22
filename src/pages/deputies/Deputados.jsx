@@ -18,7 +18,7 @@ const Deputados = () => {
 		})();
 	}, []);
 
-	function filtrar(e) {
+	const filtrar = (e) => {
 		const filtro = e.target.value;
 		const filtrados = deputados.filter((deputado) => {
 			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
@@ -26,7 +26,7 @@ const Deputados = () => {
 			} else return null;
 		});
 		setDeputadosFiltrados(filtrados);
-	}
+	};
 
 	return (
 		<>
@@ -47,7 +47,6 @@ const Deputados = () => {
 							key={index}
 						/>
 					</Link>
-
 				))}
 			</div>
 		</>
