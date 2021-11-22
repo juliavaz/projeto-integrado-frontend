@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CardDeputados from '../../components/CardDeputados';
 import { getDeputados } from '../../services/api';
 import { InputText } from 'primereact/inputtext';
+import { Link } from 'react-router-dom';
 
 const Deputados = () => {
 	const [deputados, setDeputados] = useState([]);
@@ -37,13 +38,16 @@ const Deputados = () => {
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
-					<CardDeputados
-						id={deputado.id}
-						imgPath={deputado.urlFoto}
-						nome={deputado.nome}
-						partido={deputado.siglaPartido}
-						key={index}
-					/>
+					<Link to={`/deputados/${deputado.id}`} className="noUnderline">
+						<CardDeputados
+							id={deputado.id}
+							imgPath={deputado.urlFoto}
+							nome={deputado.nome}
+							partido={deputado.siglaPartido}
+							key={index}
+						/>
+					</Link>
+
 				))}
 			</div>
 		</>

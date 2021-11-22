@@ -1,6 +1,7 @@
 import './App.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import PrimeReact from 'primereact/api';
 import { BrowserRouter } from 'react-router-dom';

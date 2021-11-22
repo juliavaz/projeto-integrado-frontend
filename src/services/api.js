@@ -18,3 +18,14 @@ export const getPartidos = async () => {
   return partidos;
 };
 
+export const getProposicoes = async () => {
+  const proposicoes = await http.get('proposicoes', {
+    params: {
+      itens: 50,
+      ordem: 'desc',
+      ordenarPor: 'ano'
+    }
+  });
+  return proposicoes;
+};
+
