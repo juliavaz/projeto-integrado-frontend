@@ -74,54 +74,42 @@ const DeputadosDetalhes = (props) => {
             }
         }
         setFavoritos(apiFavoritos.getAll())
-        isFavorite()
-        
+        isFavorite()        
     }
 
-
-
     return (
-        <>
-            {deputados.ultimoStatus &&
-            <>
+    <>
+    {deputados.ultimoStatus &&
+        <>        
+        <Container>
+            <Button variant="light" onClick={()=>props.history.goBack()}> <BsArrowLeft /> Voltar</Button>
+            <Row>
+                <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
+                    <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"200px"}}/>
+                    <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge>
+                </Col>
+                <Col md={1}><Divider layout="vertical" /></Col>
                 
-                <Container>
-                    <Row>
-
-                        <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
-                            <Button variant="link" onClick={()=>props.history.goBack()} style={{"position":"relative", "top":"-100px"}}> <BsArrowLeft /> Voltar</Button>
-                            <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"114px"}}/>
-                            <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge>
-                        </Col>
-                        <Col md={1}><Divider layout="vertical" /></Col>
-                        
-                        <Col md={7}>
-                            <br />
-                            <h2> 
-                                {deputados.ultimoStatus.nomeEleitoral}{" "}
-                                {isFavorite() && <AiFillStar style={{"font-size":"1.5rem"}} onClick={handleRemoveFavorite} />}
-                                {(!isFavorite()) && <AiOutlineStar style={{"font-size":"1.5rem"}} onClick={handleFavorite} />}
-                            </h2>
-                            <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}> {deputados.ultimoStatus.situacao}</Badge>
-                            <br />
-                            <p>Nome civil: {deputados.nomeCivil}</p>
-                            <p>Email: {deputados.ultimoStatus.email}</p>
-                            <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
-                            <br /><br />
-                            <Button variant="dark"><MdOutlineAttachMoney /> {''}Despesas</Button> {" "}
-                            <Button variant="outline-secondary"><GiPublicSpeaker /> {' '}Proposições</Button>
-                            
-                            
-                            
-                         </Col>
-                    </Row>
-                </Container>
-                
-            </>
-            }
-
-
+                <Col md={7}><br />
+                    <h2> 
+                        {deputados.ultimoStatus.nomeEleitoral}{" "}
+                        {isFavorite() && <AiFillStar style={{"font-size":"1.5rem"}} onClick={handleRemoveFavorite} />}
+                        {(!isFavorite()) && <AiOutlineStar style={{"font-size":"1.5rem"}} onClick={handleFavorite} />}
+                    </h2>
+                    <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}> {deputados.ultimoStatus.situacao}</Badge>
+                    <br />
+                    <p>Nome civil: {deputados.nomeCivil}</p>
+                    <p>Email: {deputados.ultimoStatus.email}</p>
+                    <p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
+                    <br /><br />
+                    <Button variant="dark"><MdOutlineAttachMoney /> {''}Despesas</Button> {" "}
+                    <Button variant="outline-secondary"><GiPublicSpeaker /> {' '}Proposições</Button>
+                </Col>
+            </Row>
+        </Container>            
         </>
+    }
+    </>
     )
 }
 
