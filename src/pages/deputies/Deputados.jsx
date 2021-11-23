@@ -34,7 +34,7 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText onChange={filtrar} />
+				<InputText onChange={filtrar} placeholder="Insira aqui sua busca"/>
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (

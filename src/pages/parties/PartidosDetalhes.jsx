@@ -1,6 +1,10 @@
+import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react'
-import { Badge } from 'react-bootstrap';
+import { Badge, Col, Container, Row } from 'react-bootstrap';
+import { BsArrowLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import CardPartidos from '../../components/CardPartidos';
 import { http } from '../../services/api';
 
 const PartidosDetalhes = (props) => {
@@ -24,20 +28,32 @@ const PartidosDetalhes = (props) => {
     
     return (
         <>
+        <Container>
+            <Button className="btn btn-light" variant="light" onClick={()=>props.history.goBack()}> <BsArrowLeft /> Voltar</Button>
             {partidos.status &&
             <>
-                <h1>{partidos.nome} ({partidos.sigla}) <Badge pill bg='success' style={{"font-size": "18px", "vertical-align":"35%"}}> {partidos.status.situacao}</Badge></h1>
-                <hr />
-                <h4>Membros do partido</h4>
-                <br />
+            <h1 style={{ "padding-top": "15px"}}>{partidos.nome} ({partidos.sigla}) <Badge pill bg='success' style={{"font-size": "18px", "vertical-align":"35%"}}> {partidos.status.situacao}</Badge></h1>
+            <hr />
+            <h4>Membros do partido</h4>
+            <br />
+            <Row>
                 {membros.map((membro, i) => (
-                    <Link to={`/deputados/${membro.id}`}>
-                    <img key={i} src={membro.urlFoto} title={membro.nome} alt={membro.nome} style={{"max-width":"114px", "margin-right":"5px"}}/>
+                <Col md={3}>                        
+					<Link to={`/deputados/${membro.id}`} className="noUnderline">
+                        <CardPartidos
+                            key={i}
+                            to={membro.id}
+                            src={membro.urlFoto}
+                            title={membro.nome}
+                            alt={membro.nome}
+                        />
                     </Link>
+                </Col>
                 ))}
+            </Row>
             </>
-            
             }
+        </Container>
         </>
     )
 }
