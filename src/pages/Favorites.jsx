@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import apiFavoritos from '../services/apiFavoritos'
 
 const Favorites = () => {
     
     const [favoritos, setFavoritos] = useState([])
-    
+
+ 
     useEffect(()=> {
-        const favoritos = apiFavoritos.getAll()
-        setFavoritos(favoritos)
+        let favs = apiFavoritos.getAll()
+        setFavoritos(favs)
     }, [])
+
 
 
     return (
@@ -26,11 +27,22 @@ const Favorites = () => {
                 </>
 
             }
-            {(favoritos.length > 0) &&
-                <>
-                </>
-
+            {
+                (favoritos.length > 0) &&
+                    <>
+                    {favoritos.map((deputado, index) => (
+                        <>
+                        <h3>{deputado.ultimoStatus.nome}</h3>
+                        <img src={deputado.ultimoStatus.urlFoto} alt={deputado.ultimoStatus.nome} />
+                        <br />
+                        <p>Adicionar as despesas e últimas proposições do depultado. Referencia: https://www.camara.leg.br/deputados/204554 </p>
+                        </>
+                    ))}
+                    </>
             }
+
+       
+
         </>
     )
 }

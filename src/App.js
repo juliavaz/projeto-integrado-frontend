@@ -6,15 +6,11 @@ import { useState } from 'react';
 import PrimeReact from 'primereact/api';
 import { BrowserRouter } from 'react-router-dom';
 import Routing from './Routing';
-import NavBar from './components/NavBar';
 import SideMenu from './components/SideMenu2';
 
 function App() {
 	PrimeReact.ripple = true;
 
-	const toggleSideMenu = () => {
-		setShowSideMenu(!showSideMenu);
-	};
 
 	const closeMenus = () => {
 		setShowSideMenu(false);

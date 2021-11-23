@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCalendarAlt, FaCubes, FaFile, FaFileSignature, FaHome, FaHotel, FaUserTie, FaVoteYea } from 'react-icons/fa';
+import { FaFile, FaHome } from 'react-icons/fa';
 import { FaInfoCircle, FaStar } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
 import { ListGroup } from 'react-bootstrap';
 
 function SideMenu(props) {
-	let classes = props.showSideMenu === false ? 'sideMenu closed' : 'sideMenu';
 	return (
 		<>
 			<ListGroup variant="flush" style={{"min-width": "250px", "height": "100vh", "background-color":"#d3d3d4"}}>
