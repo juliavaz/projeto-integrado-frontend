@@ -2,9 +2,13 @@
 	box-sizing: border-box;
 	transition: all 0.2s;
 }
+#root {
+	height: 100% !important;
+}
 body,
 html {
 	margin: 0;
+	height: 100%;
 	font-family: 'Nunito', sans-serif;
 }
 hr {
@@ -42,6 +46,7 @@ hr {
 	color: #0000ff;
 }
 #mainContainer {
+	position: relative;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -91,9 +96,9 @@ hr {
 	text-align: center;
 }
 #contentContainer {
-	height: 100%;
+	height: 100vh;
 	flex-grow: 1;
-	overflow-y: scroll;
+	overflow-y: auto;
 	padding: 25px;
 }
 #contentContainer h1,
@@ -166,13 +171,11 @@ h6 {
 .noUnderline {
 	text-decoration: none;
 	color: inherit;
-
 }
 
 .noUnderline:hover {
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.719)
-	
+	color: rgba(255, 255, 255, 0.719);
 }
 
 .noBorder {
@@ -181,9 +184,9 @@ h6 {
 
 .cardFunction:hover {
 	background-color: #d3d3d4;
-	color: black
+	color: black;
 }
 
-.borderRadiusImportant{
+.borderRadiusImportant {
 	border-radius: 8px !important;
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
 import { getPartidos } from '../../services/api';
+import { Table } from 'react-bootstrap';
+import { FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Partidos = () => {
 	const [partidos, setPartidos] = useState([]);
@@ -20,11 +21,34 @@ const Partidos = () => {
 			<h1>Partidos</h1>
 			<hr />
 			<br />
-			<DataTable value={partidos} stripedRows>
-				<Column field="id" header="ID"></Column>
-				<Column field="nome" header="Nome"></Column>
-				<Column field="sigla" header="Sigla"></Column>
-			</DataTable>
+			<Table striped bordered hover>
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>Nome</td>
+						<td>Sigla</td>
+						<td>Ações</td>
+					</tr>
+				</thead>
+				<tbody>
+					{partidos.map((partido, index) => {
+						return (
+							<React.Fragment key={index}>
+								<tr>
+									<td>{partido.id}</td>
+									<td>{partido.nome}</td>
+									<td>{partido.sigla}</td>
+									<td>
+										<Link to={`/partidos/${partido.id}`}>
+											<FaEye />
+										</Link>
+									</td>
+								</tr>
+							</React.Fragment>
+						);
+					})}
+				</tbody>
+			</Table>
 		</>
 	);
 };

@@ -34,19 +34,21 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText onChange={filtrar} placeholder="Insira aqui sua busca"/>
+				<InputText onChange={filtrar} placeholder="Insira aqui sua busca" />
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
-					<Link to={`/deputados/${deputado.id}`} className="noUnderline">
-						<CardDeputados
-							id={deputado.id}
-							imgPath={deputado.urlFoto}
-							nome={deputado.nome}
-							partido={deputado.siglaPartido}
-							key={index}
-						/>
-					</Link>
+					<React.Fragment key={index}>
+						<Link to={`/deputados/${deputado.id}`} className="noUnderline">
+							<CardDeputados
+								id={deputado.id}
+								imgPath={deputado.urlFoto}
+								nome={deputado.nome}
+								partido={deputado.siglaPartido}
+								key={index}
+							/>
+						</Link>
+					</React.Fragment>
 				))}
 			</div>
 		</>
