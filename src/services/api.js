@@ -29,3 +29,8 @@ export const getProposicoes = async () => {
   return proposicoes;
 };
 
+export const despesasByDeputadoId = async id => {
+  const { data: { dados } } = await http.get(`/deputados/${id}/despesas`);
+  return dados;
+};
+
