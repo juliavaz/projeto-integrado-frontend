@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getProposicoes } from '../../services/api';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
@@ -21,26 +21,34 @@ const Proposicoes = () => {
 			<hr />
 			<br />
 
-			<Container>
-				<ListGroup>
-					{proposicoes.map((proposicao, index) => (
-						<React.Fragment key={index}>
-							<ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-								<div className="ms-2 me-auto">
-									<div className="fw-bold">
+			<Table striped bordered hover>
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>Ementa</td>
+						<td>Ações</td>
+					</tr>
+				</thead>
+				<tbody>
+					{proposicoes.map((proposicao, index) => {
+						return (
+							<React.Fragment key={index}>
+								<tr>
+									<td>
 										{proposicao.siglaTipo} {proposicao.numero}/{proposicao.ano}{' '}
-										<Link to={`/proposicoes/${proposicao.id}`} className="noUnderline">
-											{' '}
+									</td>
+									<td>{proposicao.ementa}</td>
+									<td>
+										<Link to={`/proposicoes/${proposicao.id}`}>
 											<AiOutlineInfoCircle />
 										</Link>
-									</div>
-									{proposicao.ementa}
-								</div>
-							</ListGroup.Item>
-						</React.Fragment>
-					))}
-				</ListGroup>
-			</Container>
+									</td>
+								</tr>
+							</React.Fragment>
+						);
+					})}
+				</tbody>
+			</Table>
 		</>
 	);
 };
