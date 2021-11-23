@@ -175,3 +175,11 @@ h6 {
 	
 }
 
+.noBorder {
+	border: none;
+}
+
+.cardFunction:hover {
+	background-color: #d3d3d4;
+	color: black
+}

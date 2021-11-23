@@ -5,6 +5,9 @@ import { Divider } from 'primereact/divider';
 import {MdOutlineAttachMoney} from 'react-icons/md'
 import {GiPublicSpeaker} from 'react-icons/gi'
 import { Link } from 'react-router-dom';
+import apiFavoritos from '../../services/apiFavoritos';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import {BsArrowLeft} from 'react-icons/bs'
 
 
 const DeputadosDetalhes = (props) => {
@@ -40,6 +43,41 @@ const DeputadosDetalhes = (props) => {
 
     }
 
+    const [favoritos, setFavoritos] = useState([])
+    
+    useEffect(()=> {
+        const favoritos = apiFavoritos.getAll()
+        setFavoritos(favoritos)
+    }, [])
+
+    function isFavorite(){
+        for(let i = 0; i<favoritos.length; i++){
+            if(favoritos[i].id === deputados.id){
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
+    function handleFavorite(){
+        const favorito = deputados
+        apiFavoritos.create(favorito)
+        setFavoritos(apiFavoritos.getAll())
+        isFavorite()
+    }
+
+    function handleRemoveFavorite(){
+        for(let i = 0; i<favoritos.length; i++){
+            if(favoritos[i].id === deputados.id){
+                apiFavoritos.delete(i)
+            }
+        }
+        setFavoritos(apiFavoritos.getAll())
+        isFavorite()
+        
+    }
+
 
 
     return (
@@ -51,6 +89,7 @@ const DeputadosDetalhes = (props) => {
                     <Row>
 
                         <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
+                            <Button variant="link" onClick={()=>props.history.goBack()} style={{"position":"relative", "top":"-100px"}}> <BsArrowLeft /> Voltar</Button>
                             <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"114px"}}/>
                             <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge>
                         </Col>
@@ -58,10 +97,12 @@ const DeputadosDetalhes = (props) => {
                         
                         <Col md={7}>
                             <br />
-                            <h2>
+                            <h2> 
                                 {deputados.ultimoStatus.nomeEleitoral}{" "}
-                               <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}> {deputados.ultimoStatus.situacao}</Badge>
+                                {isFavorite() && <AiFillStar style={{"font-size":"1.5rem"}} onClick={handleRemoveFavorite} />}
+                                {(!isFavorite()) && <AiOutlineStar style={{"font-size":"1.5rem"}} onClick={handleFavorite} />}
                             </h2>
+                            <Badge pill bg={badgeColor()} style={{"font-size": "14px", "vertical-align":"35%"}}> {deputados.ultimoStatus.situacao}</Badge>
                             <br />
                             <p>Nome civil: {deputados.nomeCivil}</p>
                             <p>Email: {deputados.ultimoStatus.email}</p>
