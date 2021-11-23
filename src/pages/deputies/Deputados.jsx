@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CardDeputados from '../../components/CardDeputados';
 import { getDeputados } from '../../services/api';
 import { InputText } from 'primereact/inputtext';
+import { Link } from 'react-router-dom';
 
 const Deputados = () => {
 	const [deputados, setDeputados] = useState([]);
@@ -17,7 +18,7 @@ const Deputados = () => {
 		})();
 	}, []);
 
-	function filtrar(e) {
+	const filtrar = (e) => {
 		const filtro = e.target.value;
 		const filtrados = deputados.filter((deputado) => {
 			if (String(deputado.nome).toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
@@ -25,7 +26,7 @@ const Deputados = () => {
 			} else return null;
 		});
 		setDeputadosFiltrados(filtrados);
-	}
+	};
 
 	return (
 		<>
@@ -33,17 +34,19 @@ const Deputados = () => {
 			<hr />
 			<br />
 			<div className="flexContainer">
-				<InputText onChange={(e) => filtrar(e)} />
+				<InputText onChange={filtrar} />
 			</div>
 			<div className="flexContainer">
 				{deputadosFiltrados.map((deputado, index) => (
-					<CardDeputados
-						id={deputado.id}
-						imgPath={deputado.urlFoto}
-						nome={deputado.nome}
-						partido={deputado.siglaPartido}
-						key={index}
-					/>
+					<Link to={`/deputados/${deputado.id}`} className="noUnderline">
+						<CardDeputados
+							id={deputado.id}
+							imgPath={deputado.urlFoto}
+							nome={deputado.nome}
+							partido={deputado.siglaPartido}
+							key={index}
+						/>
+					</Link>
 				))}
 			</div>
 		</>
