@@ -82,11 +82,12 @@ const DeputadosDetalhes = (props) => {
     {deputados.ultimoStatus &&
         <>        
         <Container>
-            <Button variant="light" onClick={()=>props.history.goBack()}> <BsArrowLeft /> Voltar</Button>
-            <Row>
-                <Col md={4} style={{"text-align":"right", "padding-right":"0", "position":"relative", "top":"50px"}}>
-                    <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"max-width":"200px"}}/>
-                    <Badge bg="secondary" style={{"font-size": "11px", "position":"relative", "left":"-114px", "top":"50px"}}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge>
+            <Button variant="light" onClick={()=>props.history.goBack()}> <BsArrowLeft /> Voltar</Button><br />
+            <Row style={{ "padding-top": "20px"}}>
+                <Col md={1} ></Col>
+                <Col md={3} style={{"text-align":"right", "padding-right":"0", "position":"relative", }}>
+                    <img src={deputados.ultimoStatus.urlFoto} alt={deputados.ultimoStatus.nomeEleitoral} style={{"width":"250px"}}/>
+                    <center><Badge bg="secondary" style={{ "top":"50px", "borderRadius": "15px" }}><Link to={`/partidos/${getPartido()}`} className="noUnderline">{deputados.ultimoStatus.siglaPartido}-{deputados.ultimoStatus.siglaUf}</Link></Badge></center>
                 </Col>
                 <Col md={1}><Divider layout="vertical" /></Col>
                 
