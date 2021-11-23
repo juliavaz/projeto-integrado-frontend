@@ -52,15 +52,14 @@ const DeputadosDetalhes = (props) => {
 		setFavoritos(favoritos);
 	}, []);
 
-	function isFavorite() {
-		for (let i = 0; i < favoritos.length; i++) {
-			if (favoritos[i].id === deputados.id) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-	}
+    function isFavorite(){
+        for(let i = 0; i<favoritos.length; i++){
+            if(favoritos[i].id === deputados.id){
+                return true
+            } 
+        }
+        return false
+    }
 
 	function handleFavorite() {
 		const favorito = deputados;
