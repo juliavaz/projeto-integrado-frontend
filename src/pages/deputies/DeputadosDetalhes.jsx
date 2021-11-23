@@ -130,9 +130,11 @@ const DeputadosDetalhes = (props) => {
 								<p>Telefone: {deputados.ultimoStatus.gabinete.telefone}</p>
 								<br />
 								<br />
-								<Button variant="dark">
-									<MdOutlineAttachMoney /> {''}Despesas
-								</Button>{' '}
+								<Link to={`/deputados/${deputados.id}/despesas`}>
+									<Button variant="dark">
+										<MdOutlineAttachMoney /> {''}Despesas
+									</Button>{' '}
+								</Link>
 								<Button variant="outline-secondary">
 									<GiPublicSpeaker /> Proposições
 								</Button>
